@@ -6,7 +6,7 @@ describe ("Calculator", () => {
             except(addition(20, 22)).toBe(42);
         })
     });
-    describe("Substractio function", () => {
+    describe("Substraction function", () => {
 
     });
     describe("Multiply function", () => {
