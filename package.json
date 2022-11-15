@@ -18,5 +18,8 @@
   "homepage": "https://github.com/MinuMThomas/jestlesson-#readme",
   "devDependencies": {
     "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^29.3.1"
   }
 }
