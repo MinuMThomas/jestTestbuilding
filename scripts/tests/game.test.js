@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { game, newGame } = require("../game");
+const { game, newGame, showScore } = require("../game");
 // the below code will be the same for every html file that you want to load into DOM
 
 const { execPath } = require("process");

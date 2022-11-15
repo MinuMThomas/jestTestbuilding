@@ -23,8 +23,15 @@ function newGame() {
     game.score = 0;
     game.currentGame = [];
     game.playerMoves = [];
+    showScore();
 }
-module.exports = { game, newGame };
+
+function showScore() {
+    document.getElementById("score").innerText = game.score;
+}
+
+
+module.exports = { game, newGame, showScore };
 /** why the curly braces? Well this is because we'll be exporting more than  
 one object and function from this file,  so we need to put them in curly braces. 
 We'll do exactly the same now as we  import this into our game.test.js file,  
