@@ -2,10 +2,16 @@
  * @jest-environment jsdom
  */
 
-const { game, newGame, showScore, addTurn, lightsOn, showTurns } = require("../game");
+
+const { game, newGame, showScore, addTurn, lightsOn, showTurns, playerTurn } = require("../game");
 // the below code will be the same for every html file that you want to load into DOM
 
-const { execPath } = require("process");
+                const { execPath } = require("process");
+
+// because we can actually use Jest to  check if an alert has been called.
+//To do this, we use something called a spy
+
+jest.spyOn(window, "alert").mockImplementation(() => { });
 
 //only have to chane the file name 
 beforeAll(() => {
@@ -96,6 +102,18 @@ describe ("game play works correctly", () =>{
         game.turnNumber = 42;
         showTurns();
         expect(game.turnNumber).toBe(0)
+    });
+
+    test("should increment the score if the turn is correct", () => {
+        game.playerMoves.push(game.currentGame[0]);
+        playerTurn();
+        expect(game.score).toBe(1);
+    });
+    test("should call an alert if the move is wrong", () => {
+        game.playerMoves.push("wrong");
+        playerTurn();
+        // new method 'toBeCalledWith'
+        expect(window.alert).toBeCalledWith("wrong move!");
     });
 });
 
